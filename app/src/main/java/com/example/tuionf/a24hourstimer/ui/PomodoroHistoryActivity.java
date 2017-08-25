@@ -26,10 +26,31 @@ public class PomodoroHistoryActivity extends XActivity {
     public void initData(Bundle savedInstanceState) {
         initPomodoroHistoryData();
         initView();
+
+        updateData();
+    }
+
+    private void updateData() {
+        Intent intent = getIntent();
+        Pomodoro pomodoro = (Pomodoro) intent.getSerializableExtra("pomodoro");
+
+        for (int i = 0; i < mDataList.size(); i++) {
+
+            if (DateUtil.getSysTimeDay().equals(mDataList.get(i).getDay())) {
+                if (i+1 < mDataList.size() && mDataList.get(i+1).getPomodoro().isHasContent()){
+                    //说明有内容
+                    mDataList.add(new PomodoroHistory(pomodoro));
+                }else {
+                    mDataList.remove(i+1);
+                    mDataList.add(new PomodoroHistory(pomodoro));
+                }
+            }
+        }
+
+        historyAdapter.notifyDataSetChanged();
     }
 
     private void initPomodoroHistoryData() {
-
 
 //        PomodoroHistory pomodoroHistory = new PomodoroHistory(pomodoro, DateUtil.getSysTimeDay());
 
@@ -67,9 +88,8 @@ public class PomodoroHistoryActivity extends XActivity {
         mDataList.add(new PomodoroHistory(true,"一一","08月24日","星期四"));
         mDataList.add(new PomodoroHistory(new Pomodoro(false)));
 
-//        mDataList.add(new PomodoroHistory(true,"一一","08月31日","星期五"));
-//        mDataList.add(new PomodoroHistory(new Pomodoro(false)));
-
+        mDataList.add(new PomodoroHistory(true,"一一","08月25日","星期五"));
+        mDataList.add(new PomodoroHistory(new Pomodoro(false)));
 
     }
 

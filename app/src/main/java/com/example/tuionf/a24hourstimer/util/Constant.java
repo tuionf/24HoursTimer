@@ -9,4 +9,6 @@ public class Constant {
     public static String endPomoDate;
     public static String content;
     public static String tag;
+    public static boolean isWork = true;
+    public static int countMin = 1;
 }

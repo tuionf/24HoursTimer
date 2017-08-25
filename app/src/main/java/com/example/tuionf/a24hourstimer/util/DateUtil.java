@@ -5,6 +5,8 @@ import android.icu.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.example.tuionf.a24hourstimer.util.Constant.countMin;
+
 /**
  * Created by tuion on 2017/8/24.
  */
@@ -36,5 +38,17 @@ public class DateUtil {
         Date date1 = new Date(date);
         SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
         return sdf.format(date1);
+    }
+
+    public static  String countToTime(){
+        String str = "";
+        if (countMin > 0 && countMin < 10) {
+            str = "0"+countMin+":00";
+        }else if (countMin < 59 && countMin > 10){
+            str = countMin+":00";
+        }else {
+            str = "59:00";
+        }
+        return str;
     }
 }
