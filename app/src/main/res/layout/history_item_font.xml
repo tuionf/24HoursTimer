@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#d2d2d2"
+    tools:context="com.example.tuionf.brvahlearn.MainActivity">
+
+        <TextView
+            android:id="@+id/day"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText"
+            android:text="8月24日"/>
+
+        <TextView
+            android:id="@+id/weekDay"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText"
+            android:text="星期四"/>
+
+        <TextView
+            android:id="@+id/pomodoroCount"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:textColor="@color/colorText"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:text="2"/>
+
+</LinearLayout>
